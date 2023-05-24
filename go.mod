@@ -1,4 +1,4 @@
-module go-cli
+module github.com/candbright/go-cli
 
 go 1.20
 

@@ -28,6 +28,13 @@ func (p *Project) Create() error {
 		}
 	}
 
+	if _, err := os.Stat(fmt.Sprintf("%s/config/application.yaml", p.AbsolutePath)); os.IsExist(err) {
+		if err := os.Rename(fmt.Sprintf("%s/config/application.yaml", p.AbsolutePath),
+			fmt.Sprintf("%s/config/application-old.yaml", p.AbsolutePath)); err != nil {
+			return err
+		}
+	}
+
 	appFile, err := os.Create(fmt.Sprintf("%s/config/application.yaml", p.AbsolutePath))
 	if err != nil {
 		return err

@@ -29,5 +29,21 @@ func init() {
 	}
 	AppConfig = cfg
 }
+
+func Get(key string) string {
+	return AppConfig.Get(key)
+}
+
+func GetInt(key string) int {
+	return AppConfig.GetInt(key)
+}
+
+func GetInt64(key string) int64 {
+	return AppConfig.GetInt64(key)
+}
+
+func GetBool(key string) bool {
+	return AppConfig.GetBool(key)
+}
 `)
 }
